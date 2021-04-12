@@ -1,0 +1,22 @@
+name: CI
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Perl environment
+        uses: shogo82148/actions-setup-perl@v1.10.1
+
+      - run: perl -V
+      - run: cpanm --installdeps .
+      - run: ./create_blocklist_porn.pl
