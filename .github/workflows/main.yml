@@ -14,9 +14,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Perl environment
-        uses: shogo82148/actions-setup-perl@v1.10.1
-
-      - run: perl -V
-      - run: cpanm --installdeps --local-lib .
+      - name: install with cpanm
+        uses: perl-actions/install-with-cpanm@v1.1
+        with:
+          cpanfile: "cpanfile"
+          sudo: false
       - run: ./create_blocklist_porn.pl
