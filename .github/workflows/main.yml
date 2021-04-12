@@ -18,5 +18,5 @@ jobs:
         uses: shogo82148/actions-setup-perl@v1.10.1
 
       - run: perl -V
-      - run: cpanm --installdeps .
+      - run: cpanm --installdeps --sudo .
       - run: ./create_blocklist_porn.pl
