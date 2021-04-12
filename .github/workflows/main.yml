@@ -10,9 +10,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        perl-version:
+        - 5.32.1
     
     container:
-      image: perl:threaded-buster
+      image: perl:${{ matrix.perl-version }}-threaded-buster
 
     steps:
       - uses: actions/checkout@v2
@@ -20,6 +25,6 @@ jobs:
       - name: install with cpanm
         uses: perl-actions/install-with-cpanm@v1.1
         with:
-          cpanfile: "cpanfile"
+          cpanfile: cpanfile
           sudo: false
-      - run: ./create_blocklist_porn.pl
+      - run: /usr/local/share/perl5 ./create_blocklist_porn.pl
