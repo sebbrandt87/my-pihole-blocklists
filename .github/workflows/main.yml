@@ -18,8 +18,5 @@ jobs:
         uses: shogo82148/actions-setup-perl@v1.10.1
 
       - run: perl -V
-      - run: perl -MCPAN -e 'install Array::Utils'
-      - run: cpan -f Archive::Zip
-      - run: cpan -f File::Slurp
-      - run: cpan -f LWP::Simple
+      - run: cpanm --installdeps --local-lib .
       - run: ./create_blocklist_porn.pl
