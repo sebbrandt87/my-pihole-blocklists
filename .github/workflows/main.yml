@@ -27,4 +27,4 @@ jobs:
         with:
           cpanfile: cpanfile
           sudo: false
-      - run: /usr/local/share/perl5 ./create_blocklist_porn.pl
+      - run: /usr/local/bin/perl ./create_blocklist_porn.pl
