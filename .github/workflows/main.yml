@@ -10,6 +10,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+    container:
+      image: perl:threaded-buster
 
     steps:
       - uses: actions/checkout@v2
