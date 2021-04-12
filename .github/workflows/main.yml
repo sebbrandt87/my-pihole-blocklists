@@ -2,8 +2,8 @@ name: CI
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  schedule:
+    - cron:  '30 5 */8  *'
 
   workflow_dispatch:
 
@@ -28,3 +28,12 @@ jobs:
           cpanfile: cpanfile
           sudo: false
       - run: /usr/local/bin/perl ./create_blocklist_porn.pl
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Updated lists
+          commit_options: '--no-verify --signoff'
+          file_pattern: lists/*
+          push_options: '--force'
+          skip_dirty_check: true    
+          skip_fetch: true
