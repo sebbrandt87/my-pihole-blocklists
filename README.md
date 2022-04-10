@@ -2,6 +2,10 @@
 
 Create custom [pi-hole](https://pi-hole.net/) [blocklists](https://github.com/pi-hole/pi-hole/wiki/Customising-sources-for-ad-lists#block-more-than-advertisements) to block unwanted traffic to a network.
 
+# Currently not automatically building anymore
+
+The current block list has grown over 100MB and so GitHub isn't allowing to push back the changes. I am looking to migrate this repo to GitLab and / or save the build blocklist on a CDN.
+
 ### Disclaimer
 *This project is in **no way** affiliated with the core Pi-Hole project or organization. This project was created as a contribution to the community by providing high quality blocklists. Use at your own risk.*
 
